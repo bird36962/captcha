@@ -10,7 +10,8 @@ class Captcha {
             );
     
     public $plusOperator = 1;
-    
+    public $minusOperator = 3;
+        
     function __construct($pattern, $leftOperand, $operator, $rightOperand) {
         $this->pattern = $pattern;
         $this->leftOperand = $leftOperand;
@@ -32,7 +33,7 @@ class Captcha {
         if ($this->operator == $this->plusOperator) {
             $returnOperator = "+";
         }
-        elseif($this->operator == 3) {
+        elseif($this->operator == $this->minusOperator) {
             $returnOperator = "-";
         }
         return $returnOperator;
@@ -52,7 +53,7 @@ class Captcha {
         if ($this->operator == $this->plusOperator) {
             return $this->leftOperand + $this->rightOperand;
         }
-        elseif($this->operator == 3) {
+        elseif($this->operator == $this->minusOperator) {
             return $this->leftOperand - $this->rightOperand;
         }
         return $this->leftOperand * $this->rightOperand;
