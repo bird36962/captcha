@@ -11,12 +11,19 @@ class Captcha {
 }
 
     function getLeftOperand() {
+        if($this->leftOperand == 9) {
+            return 'Nine';
+        }
+        
         return "One";
     }
     
     function getOperation() {
         if ($this->operator == 1) {
             return "+";
+        }
+        elseif($this->operator == 3) {
+            return "-";
         }
         return "*";
     }
@@ -28,6 +35,9 @@ class Captcha {
     function getResult() {
         if ($this->operator == 1) {
             return 2;
+        }
+        elseif($this->operator == 3) {
+            return $this->leftOperand - $this->rightOperand;
         }
         return $this->leftOperand * $this->rightOperand;
     }

@@ -26,5 +26,15 @@ class CaptchaTest extends PHPUnit_Framework_TestCase {
         $this->assertEquals("5", $captcha->getRightOperand());
         $this->assertEquals(5, $captcha->getResult());
         
-    }}
+    }
+    
+     function test1931ShouldReturn_Nine_Minus_1 () {
+        $captcha = new Captcha(1, 9, 3, 1);
+        $this->assertEquals("Nine", $captcha->getLeftOperand());
+        $this->assertEquals("-", $captcha->getOperation());
+        $this->assertEquals("1", $captcha->getRightOperand());
+        $this->assertEquals(8, $captcha->getResult());
+        
+    }
+ }
 ?>
