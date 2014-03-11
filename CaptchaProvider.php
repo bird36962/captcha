@@ -5,10 +5,18 @@ include('Random.php');
 class CaptchaProvider {
     
     private  $random;
+    
+    function __construct() {
+        $this->random = new Random();
+    }
+    
     function getCaptcha() {
+        $pattern = $this->random->nextPattern();
         $leftOperand = $this->random->nextOperand();
         $rightOperand = $this->random->nextOperand();
-        $captcha = new Captcha(2, $leftOperand, 2, $rightOperand);
+        $operation = $this->random->nextOperation();
+        
+        $captcha = new Captcha($pattern, $leftOperand, $operation, $rightOperand);
         
         return $captcha;
     }
