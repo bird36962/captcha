@@ -63,5 +63,13 @@ class CaptchaTest extends PHPUnit_Framework_TestCase {
         
     }
     
+     function test2121ShouldReturn_1_Multiple_One () {
+        $captcha = new Captcha(2, 1, 2, 1);
+        $this->assertEquals("1", $captcha->getLeftOperand());
+        $this->assertEquals("*", $captcha->getOperation());
+        $this->assertEquals("One", $captcha->getRightOperand());
+        $this->assertEquals(1, $captcha->getResult());
+        
+    }
  }
 ?>
