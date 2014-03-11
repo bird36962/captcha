@@ -1,5 +1,6 @@
 <?php
 include('Captcha.php');
+include('NegativeResultException.php');
 
 class CaptchaTest extends PHPUnit_Framework_TestCase {
     function test1111ShouldReturn_One_Plus_1 ()  {
@@ -79,6 +80,14 @@ class CaptchaTest extends PHPUnit_Framework_TestCase {
         $this->assertEquals("One", $captcha->getRightOperand());
         $this->assertEquals(0, $captcha->getResult());
         
+    }
+    
+    /**
+     * @expectedException NegativeResultException
+     */
+     function testMinusWithRightOperandMoreThanLeftOperandShouldException () {
+        $captcha = new Captcha(1, 1, 3, 5);        
+        $captcha->getResult();
     }
  }
 ?>

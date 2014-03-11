@@ -59,6 +59,9 @@ class Captcha {
             return $this->leftOperand + $this->rightOperand;
         }
         elseif($this->operator == $this->minusOperator) {
+            if ($this->leftOperand - $this->rightOperand < 0) {
+                throw new NegativeResultException();
+            }
             return $this->leftOperand - $this->rightOperand;
         }
         return $this->leftOperand * $this->rightOperand;
