@@ -20,7 +20,11 @@ class Captcha {
             9 => 'Nine'
             );
         
-        $returnLeftOperand  =  $wordArray[$this->leftOperand];
+        if ($this->pattern == 1) {
+            $returnLeftOperand  =  $wordArray[$this->leftOperand];
+        } else {
+            $returnLeftOperand = $this->leftOperand;
+        }
         return $returnLeftOperand;
     }
     
@@ -36,7 +40,19 @@ class Captcha {
     }
     
     function getRightOperand(){
-        return $this->rightOperand;
+        $wordArray = array(
+            1 => 'One',
+            5 => 'Five',
+            8 => 'Eight',
+            9 => 'Nine'
+            );
+        
+        if ($this->pattern == 2) {
+            $returnRightOperand  =  $wordArray[$this->rightOperand];
+        } else {
+            $returnRightOperand = $this->rightOperand;
+        }
+        return $returnRightOperand;    
     }
     
     function getResult() {
