@@ -11,11 +11,12 @@ class Captcha {
 }
 
     function getLeftOperand() {
+        $returnLeftOperand  =  "One";
         if($this->leftOperand == 9) {
-            return 'Nine';
+            $returnLeftOperand  =  'Nine';
         }
         
-        return "One";
+        return $returnLeftOperand;
     }
     
     function getOperation() {
