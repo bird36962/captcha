@@ -7,7 +7,7 @@ class Captcha {
         $this->pattern = $pattern;
         $this->leftOperand = $leftOperand;
         $this->operator = $operator;
-        $this->rightOpera = $rightOperand;
+        $this->rightOperand = $rightOperand;
 }
 
     function getLeftOperand() {
@@ -15,15 +15,21 @@ class Captcha {
     }
     
     function getOperation() {
-        return "+";
+        if ($this->operator == 1) {
+            return "+";
+        }
+        return "*";
     }
     
     function getRightOperand(){
-        return "1";
+        return $this->rightOperand;
     }
     
     function getResult() {
-        return 2;
+        if ($this->operator == 1) {
+            return 2;
+        }
+        return $this->leftOperand * $this->rightOperand;
     }
 }
 
