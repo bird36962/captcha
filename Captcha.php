@@ -13,7 +13,11 @@ class Captcha {
             8 => 'Eight',
             9 => 'Nine'
             );
-    
+    public $operatorWord = array(
+            1 => '+',
+            2 => '*',
+            3 => '-',
+    );
     public $plusOperator = 1;
     public $minusOperator = 3;
         
@@ -34,13 +38,7 @@ class Captcha {
     }
     
     function getOperation() {
-        $returnOperator = "*";
-        if ($this->operator == $this->plusOperator) {
-            $returnOperator = "+";
-        } elseif ($this->operator == $this->minusOperator) {
-            $returnOperator = "-";
-        }
-        return $returnOperator;
+        return $this->operatorWord[$this->operator];
     }
     
     function getRightOperand(){
