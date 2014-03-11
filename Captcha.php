@@ -20,13 +20,14 @@ class Captcha {
     }
     
     function getOperation() {
+        $returnOperator = "*";
         if ($this->operator == 1) {
-            return "+";
+            $returnOperator = "+";
         }
         elseif($this->operator == 3) {
-            return "-";
+            $returnOperator = "-";
         }
-        return "*";
+        return $returnOperator;
     }
     
     function getRightOperand(){
