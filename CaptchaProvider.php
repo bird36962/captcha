@@ -1,7 +1,19 @@
 <?php
+include('Captcha.php');
+include('Random.php');
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+class CaptchaProvider {
+    
+    private  $random;
+    function getCaptcha() {
+        $leftOperand = $this->random->nextOperand();
+        $rightOperand = $this->random->nextOperand();
+        $captcha = new Captcha(2, $leftOperand, 2, $rightOperand);
+        
+        return $captcha;
+    }
+    function setRandom($random) {
+        $this->random = $random;
+    }
+}
 ?>
