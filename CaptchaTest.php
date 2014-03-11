@@ -36,5 +36,16 @@ class CaptchaTest extends PHPUnit_Framework_TestCase {
         $this->assertEquals(8, $captcha->getResult());
         
     }
+/*
+     function test1831ShouldReturn_Eight_Minus_1 () {
+        $captcha = new Captcha(1, 8, 3, 1);
+        $this->assertEquals("Eight", $captcha->getLeftOperand());
+        $this->assertEquals("-", $captcha->getOperation());
+        $this->assertEquals("1", $captcha->getRightOperand());
+        $this->assertEquals(7, $captcha->getResult());
+        
+    }
+ 
+ */
  }
 ?>

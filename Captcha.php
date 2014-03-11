@@ -8,14 +8,18 @@ class Captcha {
         $this->leftOperand = $leftOperand;
         $this->operator = $operator;
         $this->rightOperand = $rightOperand;
+        
+        
 }
 
     function getLeftOperand() {
-        $returnLeftOperand  =  "One";
-        if($this->leftOperand == 9) {
-            $returnLeftOperand  =  'Nine';
-        }
+        $wordArray = array(
+            1 => 'One',
+            8 => 'Eight',
+            9 => 'Nine'
+            );
         
+        $returnLeftOperand  =  $wordArray[$this->leftOperand];
         return $returnLeftOperand;
     }
     
