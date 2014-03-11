@@ -37,8 +37,7 @@ class Captcha {
         $returnOperator = "*";
         if ($this->operator == $this->plusOperator) {
             $returnOperator = "+";
-        }
-        elseif($this->operator == $this->minusOperator) {
+        } elseif ($this->operator == $this->minusOperator) {
             $returnOperator = "-";
         }
         return $returnOperator;
@@ -57,12 +56,12 @@ class Captcha {
     function getResult() {
         if ($this->operator == $this->plusOperator) {
             return $this->leftOperand + $this->rightOperand;
-        }
-        elseif($this->operator == $this->minusOperator) {
-            if ($this->leftOperand - $this->rightOperand < 0) {
+        } elseif ($this->operator == $this->minusOperator) {
+            $minusResult = $this->leftOperand - $this->rightOperand;
+            if ($minusResult < 0) {
                 throw new NegativeResultException();
             }
-            return $this->leftOperand - $this->rightOperand;
+            return $minusResult;
         }
         return $this->leftOperand * $this->rightOperand;
     }
