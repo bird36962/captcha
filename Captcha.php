@@ -2,26 +2,25 @@
 class Captcha {
     public $pattern, $leftOperand, $operator, $rightOperand;
     
+    public $wordArray = array(
+            1 => 'One',
+            5 => 'Five',
+            8 => 'Eight',
+            9 => 'Nine'
+            );
+    
+    public $plusOperator = 1;
     
     function __construct($pattern, $leftOperand, $operator, $rightOperand) {
         $this->pattern = $pattern;
         $this->leftOperand = $leftOperand;
         $this->operator = $operator;
         $this->rightOperand = $rightOperand;
-        
-        
-}
+    }
 
     function getLeftOperand() {
-        $wordArray = array(
-            1 => 'One',
-            5 => 'Five',
-            8 => 'Eight',
-            9 => 'Nine'
-            );
-        
         if ($this->pattern == 1) {
-            $returnLeftOperand  =  $wordArray[$this->leftOperand];
+            $returnLeftOperand  =  $this->wordArray[$this->leftOperand];
         } else {
             $returnLeftOperand = $this->leftOperand;
         }
@@ -30,7 +29,7 @@ class Captcha {
     
     function getOperation() {
         $returnOperator = "*";
-        if ($this->operator == 1) {
+        if ($this->operator == $this->plusOperator) {
             $returnOperator = "+";
         }
         elseif($this->operator == 3) {
@@ -40,15 +39,9 @@ class Captcha {
     }
     
     function getRightOperand(){
-        $wordArray = array(
-            1 => 'One',
-            5 => 'Five',
-            8 => 'Eight',
-            9 => 'Nine'
-            );
         
         if ($this->pattern == 2) {
-            $returnRightOperand  =  $wordArray[$this->rightOperand];
+            $returnRightOperand  =  $this->wordArray[$this->rightOperand];
         } else {
             $returnRightOperand = $this->rightOperand;
         }
@@ -56,7 +49,7 @@ class Captcha {
     }
     
     function getResult() {
-        if ($this->operator == 1) {
+        if ($this->operator == $this->plusOperator) {
             return $this->leftOperand + $this->rightOperand;
         }
         elseif($this->operator == 3) {
