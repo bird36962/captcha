@@ -15,6 +15,7 @@ class Captcha {
     function getLeftOperand() {
         $wordArray = array(
             1 => 'One',
+            5 => 'Five',
             8 => 'Eight',
             9 => 'Nine'
             );
@@ -40,7 +41,7 @@ class Captcha {
     
     function getResult() {
         if ($this->operator == 1) {
-            return 2;
+            return $this->leftOperand + $this->rightOperand;
         }
         elseif($this->operator == 3) {
             return $this->leftOperand - $this->rightOperand;

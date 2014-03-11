@@ -10,6 +10,14 @@ class CaptchaTest extends PHPUnit_Framework_TestCase {
         $this->assertEquals(2, $captcha->getResult());
     }
     
+    function test1511ShouldReturn_Five_Plus_1 ()  {
+        $captcha = new Captcha(1, 5, 1, 1);
+        $this->assertEquals("Five", $captcha->getLeftOperand());
+        $this->assertEquals("+", $captcha->getOperation());
+        $this->assertEquals("1", $captcha->getRightOperand());
+        $this->assertEquals(6, $captcha->getResult());
+    }
+ 
     function test1121ShouldReturn_One_Multiple_1 () {
         $captcha = new Captcha(1, 1, 2, 1);
         $this->assertEquals("One", $captcha->getLeftOperand());
